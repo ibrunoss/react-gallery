@@ -1,5 +1,10 @@
 import { ReactNode } from "react";
 
+export type MasonryGalleryProps = {
+  images: MasonryGalleryImageProps[];
+  imagesPerColumn?: number;
+};
+
 export type MasonryGalleryGridProps = {
   children: ReactNode;
 };
