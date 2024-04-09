@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
+import { GalleryImageProps } from "@/types";
 
 export type MasonryGalleryProps = {
-  images: MasonryGalleryImageProps[];
+  images: GalleryImageProps[];
   imagesPerColumn?: number;
 };
 
@@ -12,7 +13,3 @@ export type MasonryGalleryGridProps = {
 export type MasonryGalleryColumnProps = {
   children: ReactNode;
 };
-
-export type MasonryGalleryImageProps = {
-  src: string;
-} & React.ImgHTMLAttributes<HTMLImageElement>;
