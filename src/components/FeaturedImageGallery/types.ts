@@ -10,3 +10,6 @@ export type FeaturedImageGalleryDisplayProps = {
   imageFallback?: GalleryImageProps;
 };
 
+export type FeaturedImageGalleryImgProps = {
+  index: number;
+} & GalleryImageProps;
