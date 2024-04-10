@@ -1,36 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 
 import FeaturedImageGalleryContext from "./FeaturedImageGalleryContext";
-import { GalleryImageProps } from "@/types";
-import { FeaturedImageGalleryContextData } from "./types";
+import useFeaturedImageGallery from "./useFeaturedImageGallery";
 
 export function FeaturedImageGalleryProvider({
   children,
 }: Readonly<React.PropsWithChildren>) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [imageActive, setImageActive] = useState<GalleryImageProps>();
+  const {
+    currentImageIndex,
+    imageActive,
+    updateCurrentImageIndex: setCurrentImageIndex,
+    updateImageActive: setImageActive,
+  } = useFeaturedImageGallery();
 
-  function updateCurrentImageIndex(newValue: number) {
-    setCurrentImageIndex(() => newValue);
-  }
-
-  function updateImageActive(img?: GalleryImageProps) {
-    setImageActive(() => img);
-  }
-
-  const contextValue: FeaturedImageGalleryContextData = React.useMemo(
-    () => ({
-      currentImageIndex,
-      setCurrentImageIndex: updateCurrentImageIndex,
-      imageActive,
-      setImageActive: updateImageActive,
-    }),
-    [currentImageIndex, imageActive]
-  );
-
-  console.log(imageActive);
   return (
-    <FeaturedImageGalleryContext.Provider value={contextValue}>
+    <FeaturedImageGalleryContext.Provider
+      value={{
+        currentImageIndex,
+        setCurrentImageIndex,
+        imageActive,
+        setImageActive,
+      }}
+    >
       {children}
     </FeaturedImageGalleryContext.Provider>
   );
