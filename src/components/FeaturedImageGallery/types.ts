@@ -6,3 +6,7 @@ export type FeaturedImageGalleryContextData = {
   imageActive?: GalleryImageProps;
   setImageActive: (img?: GalleryImageProps) => void;
 };
+export type FeaturedImageGalleryDisplayProps = {
+  imageFallback?: GalleryImageProps;
+};
+
