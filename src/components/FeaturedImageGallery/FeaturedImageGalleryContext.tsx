@@ -4,10 +4,13 @@ import { FeaturedImageGalleryContextData } from "./types";
 
 const initialValue: FeaturedImageGalleryContextData = {
   currentImageIndex: 0,
+  imageActive: undefined,
   setCurrentImageIndex(value) {
-    Math.pow(value, 2);
+    this.currentImageIndex = value;
   },
-  setImageActive() {},
+  setImageActive(img) {
+    this.imageActive = img;
+  },
 };
 
 const FeaturedImageGalleryContext =

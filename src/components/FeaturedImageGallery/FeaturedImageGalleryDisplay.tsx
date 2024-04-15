@@ -16,7 +16,7 @@ function FeaturedImageGalleryDisplay({
   ];
 
   if (imageActive?.className) {
-    imgClassName.join(imageActive.className);
+    imgClassName.push(imageActive.className);
     delete imageActive.className;
   }
 

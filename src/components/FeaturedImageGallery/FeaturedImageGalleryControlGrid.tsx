@@ -1,5 +1,3 @@
-import { Children } from "react";
-
 import { DivWithRequiredChildren } from "@/types";
 
 function FeaturedImageGalleryControlGrid({
@@ -9,9 +7,9 @@ function FeaturedImageGalleryControlGrid({
   const divClassName = ["grid grid-cols-5 gap-4"];
 
   if (className) {
-    divClassName.join(className);
+    divClassName.push(className);
   }
-  console.log(Children.count(props.children));
+
   return <div className={divClassName.join(" ")} {...props} />;
 }
 
